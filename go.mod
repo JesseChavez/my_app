@@ -3,7 +3,7 @@ module my_app
 go 1.22.4
 
 require (
-	github.com/JesseChavez/enki v0.0.0-20240817135932-34199bbecb3e
+	github.com/JesseChavez/enki v0.0.0-20240818025745-7d9911a227df
 	github.com/JesseChavez/spt v0.1.0
 )
 

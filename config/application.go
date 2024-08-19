@@ -5,8 +5,10 @@ import (
 	"github.com/JesseChavez/spt"
 )
 
-
 func RunApplication() {
+	/* App context path, app runs in subfolder, default is root "/" */
+	// enki.ContextPath = "/admin"
+
 	enki := enki.New("my_app")
 
 	IntializeRoutes(enki.Routes)
