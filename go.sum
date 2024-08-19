@@ -1,3 +1,5 @@
+github.com/JesseChavez/enki v0.0.0-20240817135932-34199bbecb3e h1:eEtudiHaAnFI4P83FRh7hb/X1uoVx5/a3rCj5dI8iY0=
+github.com/JesseChavez/enki v0.0.0-20240817135932-34199bbecb3e/go.mod h1:IWm39rHtSxMWUj+MGVfETWWkCnZGQPKw8hy0YuTfojs=
 github.com/JesseChavez/spt v0.1.0 h1:5KtrtXzDtLUo3SQuoKUZb1aXPTrlqfDJNBTCcmSkIMk=
 github.com/JesseChavez/spt v0.1.0/go.mod h1:zGVHwSUvBZn2JyrZMoXNqfLG+WrxcdOz0ggbKDEe8rs=
 github.com/go-chi/chi/v5 v5.1.0 h1:acVI1TYaD+hhedDJ3r54HyA6sExp3HfXq7QWEEY/xMw=
