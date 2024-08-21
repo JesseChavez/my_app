@@ -1,0 +1,27 @@
+# SQL Server (2016 or higher recommended)
+# Ensure to add the right port if you are
+# not using the default port 1433
+
+development:
+  adapter: sqlserver
+  encoding: utf8
+  host: localhost
+  database: wombat_development
+  username: dev
+  password: password
+
+test:
+  adapter: sqlserver
+  encoding: utf8
+  host: localhost
+  database: wombat_test
+  username: test
+  password: password
+
+production:
+  adapter: sqlserver
+  encoding: utf8
+  host: localhost
+  database: wombat_production
+  username:
+  password:

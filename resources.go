@@ -4,6 +4,7 @@ import (
 	"embed"
 )
 
+//go:embed config/database.yml
 //go:embed public/*
 //go:embed app/views/*
 var files embed.FS
