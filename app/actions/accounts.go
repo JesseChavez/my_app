@@ -6,10 +6,11 @@ import (
 )
 
 func (axn *Action) AccountIndex(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Account Index!\n"))
+	axn.view.Render(w, r, "accounts/index.tmpl", nil)
 }
 
 func (axn *Action) AccountShow(w http.ResponseWriter, r *http.Request) {
 	log.Printf("URL params: %+v", r)
-	w.Write([]byte("Account Show!\n"))
+
+	axn.view.Render(w, r, "accounts/show.tmpl", nil)
 }

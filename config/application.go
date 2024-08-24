@@ -11,6 +11,9 @@ func NewApplication() enki.Enki {
 	/* Web App context path, app runs in subfolder, default is root "/" */
 	// enki.ContextPath = "/admin"
 
+	// project or app root directory
+	enki.BaseDir = resources.BaseDir()
+
 	// App resocurces config files, templates, assets, etc.
 	enki.Resources = resources.LoadFS()
 
