@@ -6,7 +6,11 @@ import (
 	"github.com/JesseChavez/enki"
 )
 
-func IntializeRoutes(mux *enki.Mux) {
-	mux.Get("/", actions.HomeIndex)
-	mux.Get("/today", actions.CurrentTime)
+func InitRoutes(app *enki.Enki, axn *actions.Action) *enki.Mux {
+	mux := app.InitRouting()
+
+	mux.Get("/", axn.HomeIndex)
+	mux.Get("/today", axn.CurrentTime)
+
+	return mux
 }

@@ -7,18 +7,20 @@ import (
 	"github.com/JesseChavez/spt"
 )
 
-func RunApplication() {
-	/* App context path, app runs in subfolder, default is root "/" */
+func NewApplication() enki.Enki {
+	/* Web App context path, app runs in subfolder, default is root "/" */
 	// enki.ContextPath = "/admin"
 
-	/* App resocurces config files, templates, assets, etc */
+	// App resocurces config files, templates, assets, etc.
 	enki.Resources = resources.LoadFS()
 
-	enki := enki.New("my_app")
+	// App time zone, default is UTC
+	enki.TimeZone = "Australia/Melbourne"
 
-	IntializeRoutes(enki.Routes)
+	// Web App port, default is "3000"
+	enki.WebPort = spt.FetchEnv("PORT", "8000")
 
-	port := spt.FetchEnv("PORT", "3000")
+	app := enki.New("my_app")
 
-	enki.ListenAndServe(port)
+	return app
 }
