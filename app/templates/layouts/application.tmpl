@@ -1,9 +1,8 @@
-{{define "layout"}}
+{{define "application"}}
   <!DOCTYPE html>
   <html>
     <head>
       <title>My App</title>
-
       {{block "stylesheet" .}}
       {{end}}
 
@@ -11,7 +10,7 @@
       {{end}}
     </head>
     <body>
-      <h1> My Layout</h1>
+      <h1>Application pages layout</h1>
       {{block "content" .}}
       {{end}}
     </body>

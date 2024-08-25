@@ -1,0 +1,19 @@
+{{define "anonymous"}}
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>My App</title>
+
+      {{block "stylesheet" .}}
+      {{end}}
+
+      {{block "javascript" .}}
+      {{end}}
+    </head>
+    <body>
+      <h1>Login page layout</h1>
+      {{block "content" .}}
+      {{end}}
+    </body>
+  </html>
+{{end}}

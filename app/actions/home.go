@@ -5,5 +5,5 @@ import (
 )
 
 func (axn *Action) HomeIndex(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Hello World!\n"))
+	axn.tmpl.Render(w, r, "home/index.tmpl", nil)
 }

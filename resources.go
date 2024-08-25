@@ -8,7 +8,7 @@ import (
 
 //go:embed config/database.yml
 //go:embed public/*
-//go:embed app/views/*
+//go:embed app/templates/*
 var files embed.FS
 
 func LoadFS() embed.FS {
