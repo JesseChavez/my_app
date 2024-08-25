@@ -1,0 +1,21 @@
+{
+  "name": "my_app",
+  "version": "0.0.1",
+  "author": "Jesse Chavez <jesse.chavez.r@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@types/react": "^18.3.4",
+    "@types/react-dom": "^18.3.0",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
+    "esbuild": "^0.23.1",
+    "esbuild-sass-plugin": "^3.3.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sass": "^1.77.8"
+  },
+  "scripts": {
+    "build": "node esbuild.config.js"
+  }
+}
