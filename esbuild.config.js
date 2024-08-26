@@ -3,7 +3,10 @@
 const watch = process.argv.includes('--watch')
 const minify = process.argv.includes('--minify')
 
-const isDevelopment = process.env.ENKI_ENV == 'development'
+process.env.ENKI_ENV ||= 'development'
+
+const isDevelopment = process.env.ENKI_ENV === 'development'
+const isProduction = process.env.ENKI_ENV === 'production'
 
 const path = require('path')
 
@@ -26,8 +29,8 @@ const config = {
     ENKI_ENV: JSON.stringify(process.env.ENKI_ENV || 'development')
   },
   sourcemap: isDevelopment,
-  logLevel: 'info',
-  minify: minify
+  minify: minify || isProduction,
+  logLevel: 'info'
 }
 
 console.log(config)
