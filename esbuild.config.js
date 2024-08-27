@@ -10,7 +10,11 @@ const isProduction = process.env.ENKI_ENV === 'production'
 
 const path = require('path')
 
+const fs = require('fs')
+
 const sassPlugin = require('esbuild-sass-plugin').default
+
+const buildDir = path.join(process.cwd(), 'frontend/builds')
 
 const config = {
   // absWorkingDir: path.join(process.cwd(), 'frontend/src'),
@@ -18,8 +22,17 @@ const config = {
     'frontend/src/anonymous.ts', 'frontend/src/application.ts',
     'frontend/src/anonymous.scss', 'frontend/src/application.scss'
   ],
-  outdir: path.join(process.cwd(), 'frontend/builds'),
+  outdir: buildDir,
   bundle: true,
+  metafile: true,
+  assetNames: 'assets/[name]-[hash]',
+  entryNames: '[name]-[hash]',
+  loader: {
+    ".png": "file",
+    ".jpeg": "file",
+    ".jpg": "file",
+    ".svg": "file",
+  },
   plugins: [sassPlugin()],
   publicPath: '/assets',
   // Needed to ignore errors when esbuild is resolving url in sass files (external)
@@ -42,7 +55,11 @@ require('esbuild').context(config).then(context => {
     context.watch()
   } else {
     // Build once and exit if not in watch mode
-    context.rebuild().then(_result => {
+    context.rebuild().then(result => {
+      fs.writeFileSync(
+        path.join(buildDir, "metafile.json"),
+        JSON.stringify(result.metafile)
+      )
       context.dispose()
     })
   }
