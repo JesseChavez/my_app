@@ -13,6 +13,7 @@ const path = require('path')
 const fs = require('fs')
 
 const sassPlugin = require('esbuild-sass-plugin').default
+const manifestPlugin = require('esbuild-plugin-manifest')
 
 const buildDir = path.join(process.cwd(), 'frontend/builds')
 
@@ -33,7 +34,7 @@ const config = {
     ".jpg": "file",
     ".svg": "file",
   },
-  plugins: [sassPlugin()],
+  plugins: [sassPlugin(), manifestPlugin({ shortNames: true })],
   publicPath: '/assets',
   // Needed to ignore errors when esbuild is resolving url in sass files (external)
   external: ['*.woff2', '*.woff', '*.ttf', '*.jpg', '*.png', '*.svg'],
