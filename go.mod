@@ -3,7 +3,7 @@ module my_app
 go 1.22.4
 
 require (
-	github.com/JesseChavez/enki v0.1.0
+	github.com/JesseChavez/enki v0.1.1
 	github.com/JesseChavez/spt v0.1.0
 	github.com/go-rel/rel v0.42.0
 )
@@ -25,3 +25,5 @@ require (
 	golang.org/x/text v0.17.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
+
+// replace github.com/JesseChavez/enki => ../enki
