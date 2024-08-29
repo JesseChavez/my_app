@@ -20,6 +20,9 @@ func NewApplication() enki.Enki {
 	// App time zone, default is UTC
 	enki.TimeZone = "Australia/Melbourne"
 
+	// App session key, session cookie name
+	enki.SessionKey = "_my_app_session"
+
 	// Web App port, default is "3000"
 	enki.WebPort = spt.FetchEnv("PORT", "8000")
 

@@ -6,6 +6,7 @@ import (
 )
 
 func (axn *Action) AccountIndex(w http.ResponseWriter, r *http.Request) {
+
 	axn.tmpl.Render(w, r, "accounts/index.tmpl", nil)
 }
 
