@@ -9,7 +9,7 @@ import (
 func InitRoutes(app *enki.Enki, axn *actions.Action) *enki.Mux {
 	mux := app.InitRouting()
 
-	mux.Get("/", axn.HomeIndex)
+	mux.Get("/", axn.Dashboard)
 	mux.Get("/today", axn.CurrentTime)
 
 	// accounts

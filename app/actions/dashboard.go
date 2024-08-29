@@ -4,7 +4,7 @@ import (
 	"net/http"
 )
 
-func (axn *Action) HomeIndex(w http.ResponseWriter, r *http.Request) {
+func (axn *Action) Dashboard(w http.ResponseWriter, r *http.Request) {
 	err := axn.requireAuth(w, r)
 
 	if err != nil {
@@ -12,6 +12,5 @@ func (axn *Action) HomeIndex(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-
-	axn.tmpl.Render(w, r, "home/index.tmpl", nil)
+	axn.tmpl.Render(w, r, "dashboard/index.tmpl", nil)
 }

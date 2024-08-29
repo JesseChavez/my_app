@@ -1,2 +1,2 @@
-console.log("Hello Enki")
+console.log("Hello Enki, authenticated")
 
