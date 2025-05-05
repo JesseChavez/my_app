@@ -10,10 +10,8 @@ github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/internal v1.0.0 h1:D3occ
 github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/internal v1.0.0/go.mod h1:bTSOgj05NGRuHHhQwAdPnYr9TOdNmKlZTgGLL6nyAdI=
 github.com/AzureAD/microsoft-authentication-library-for-go v1.2.1 h1:DzHpqpoJVaCgOUdVHxE8QB52S6NiVdDQvGlny1qvPqA=
 github.com/AzureAD/microsoft-authentication-library-for-go v1.2.1/go.mod h1:wP83P5OoQ5p6ip3ScPr0BAq0BvuPAvacpEuSzyouqAI=
-github.com/JesseChavez/enki v0.1.0 h1:DOY4Bxbt/Xx7IRdj/PABm54imzf9yXnNnWoMraaQUKM=
-github.com/JesseChavez/enki v0.1.0/go.mod h1:wlulw6UmxvoX22LIRuzuZpueymo4g8HhoYvSo/xl/Uw=
-github.com/JesseChavez/enki v0.1.1 h1:XID3B3dq0/PkhItZfNKx32zP9yUYW2/lyRE/Z9XV1Xw=
-github.com/JesseChavez/enki v0.1.1/go.mod h1:wlulw6UmxvoX22LIRuzuZpueymo4g8HhoYvSo/xl/Uw=
+github.com/JesseChavez/enki v0.3.0 h1:i4o8fmgmqcUbH5r6lOmQCzYW3CNbBW3Y4Tu+gaZfs3Q=
+github.com/JesseChavez/enki v0.3.0/go.mod h1:wlulw6UmxvoX22LIRuzuZpueymo4g8HhoYvSo/xl/Uw=
 github.com/JesseChavez/spt v0.1.0 h1:5KtrtXzDtLUo3SQuoKUZb1aXPTrlqfDJNBTCcmSkIMk=
 github.com/JesseChavez/spt v0.1.0/go.mod h1:zGVHwSUvBZn2JyrZMoXNqfLG+WrxcdOz0ggbKDEe8rs=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
