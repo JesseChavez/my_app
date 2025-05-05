@@ -1,6 +1,6 @@
 module my_app
 
-go 1.22.4
+go 1.24.2
 
 require (
 	github.com/JesseChavez/enki v0.1.1
