@@ -10,15 +10,19 @@ import (
 
 type Action struct {
 	repo enki.Repository
-	tmpl enki.Renderer
-	ssto enki.SessionStore
-	// cjar enki.CookieJar
+	view enki.IRenderer
+	ssto enki.ISessionStore
+	help enki.IHelper
+	nlog enki.ILogger
+	// cjar enki.ICookieJar
 }
 
 func (axn *Action) InitAction(app *enki.Enki) {
 	axn.repo = app.DB
-	axn.tmpl = app.Render
-	axn.ssto = app.SessStore
+	axn.view = app.Renderer
+	axn.ssto = app.SessionStore
+	axn.help = app.Helper
+	axn.nlog = app.Logger
 }
 
 // Helper to check auth.

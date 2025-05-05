@@ -12,5 +12,5 @@ func (axn *Action) Dashboard(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	axn.tmpl.Render(w, r, "dashboard/index.tmpl", nil)
+	axn.view.RenderHTML(w, http.StatusOK, "dashboard/index.tmpl", nil)
 }
