@@ -1,13 +1,14 @@
 package main
 
 import (
-	"log"
-	"net/http"
-	"os"
+	base "my_app/app"
 	"my_app/app/actions"
 	"my_app/app/models"
 	"my_app/app/views"
 	"my_app/config"
+	"log"
+	"net/http"
+	"os"
 	"time"
 
 	"github.com/JesseChavez/enki"
@@ -48,6 +49,11 @@ func startWebApplication() {
 	views.InitView(&app)
 
 	models.InitModel(&app)
+
+	config.InitQueues(&app)
+
+	base.InitUnits(&app)
+	base.InitProps(&config.Props)
 
 	app.ListenAndServe()
 }
