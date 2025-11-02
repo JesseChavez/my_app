@@ -23,12 +23,20 @@ func NewApplication() enki.Enki {
 	// App session max age in minutes
 	enki.SessionMaxAge = 120
 
-	// App authentication secret key, recomended 32 or 64 bytes
-	enki.SecretAuthKey = "b0ae69a9f367ad86fa50b4098e1ee9aabe6a6012a91f06248f084f205793a3cd"
+	// App secret key base, recomended 32 or 64 bytes
+	enki.SecretKeyBase = "my app secret"
 
-	// App encryption secret key, must be either 16, 24, or 32 bytes to select
-	// AES-128, AES-192, or AES-256 modes
-	enki.SecretEncrKey = "7eb98e9534f49eb07157874c7adeb6cf"
+	// App log level "info" or "debug"
+	enki.LogLevel = "debug"
+
+	// App salt for cookie encryption
+	// enki.AuthenticatedEncryptedCookieSalt = "encrypted cookie salt"
+
+	// Application mode, when API is true response is always JSON
+	// enki.API = false
+
+	// Default rendering mode, default is SSR
+	// enki.CSR = true
 
 	// Web App port, default is "3000"
 	enki.WebPort = spt.FetchEnv("PORT", "3000")
