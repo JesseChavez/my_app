@@ -3,10 +3,14 @@
 const watch = process.argv.includes('--watch')
 const minify = process.argv.includes('--minify')
 
-process.env.ENKI_ENV ||= 'development'
+process.env.APP_ENV ||= 'development'
 
-const isDevelopment = process.env.ENKI_ENV === 'development'
-const isProduction = process.env.ENKI_ENV === 'production'
+process.env.CONTEXT_PATH ||= ''
+
+const assetContextPath = `${process.env.CONTEXT_PATH}/assets`
+
+const isDevelopment = process.env.APP_ENV === 'development'
+const isProduction = process.env.APP_ENV === 'production'
 
 const path = require('path')
 
@@ -15,32 +19,53 @@ const fs = require('fs')
 const sassPlugin = require('esbuild-sass-plugin').default
 const manifestPlugin = require('esbuild-plugin-manifest')
 
-const buildDir = path.join(process.cwd(), 'frontend/builds')
+const buildDir = path.join(process.cwd(), 'tmp/assets')
+
+const packagesPath = path.resolve(process.cwd(), 'node_modules')
+
+const sassLoadPaths = [
+  packagesPath,
+]
 
 const config = {
   // absWorkingDir: path.join(process.cwd(), 'frontend/src'),
   entryPoints: [
-    'frontend/src/anonymous.ts', 'frontend/src/application.ts',
-    'frontend/src/anonymous.scss', 'frontend/src/application.scss'
+    'frontend/src/anonymous.ts',
+    'frontend/src/application.ts',
+    'frontend/src/anonymous.scss',
+    'frontend/src/application.scss'
   ],
   outdir: buildDir,
+  format: 'esm',
   bundle: true,
   metafile: true,
-  assetNames: 'assets/[name]-[hash]',
+  assetNames: '[name]-[hash]',
   entryNames: '[name]-[hash]',
   loader: {
+    ".woff": "file",
+    ".woff2": "file",
     ".png": "file",
     ".jpeg": "file",
     ".jpg": "file",
     ".svg": "file",
   },
-  plugins: [sassPlugin(), manifestPlugin({ shortNames: true })],
-  publicPath: '/assets',
-  // Needed to ignore errors when esbuild is resolving url in sass files (external)
-  external: ['*.woff2', '*.woff', '*.ttf', '*.jpg', '*.png', '*.svg'],
+  plugins: [
+    sassPlugin({
+      // cssImports: true
+      loadPaths: sassLoadPaths
+    }),
+    manifestPlugin({
+      shortNames: true
+    })
+  ],
+  // publicPath: '/assets',
+  publicPath: assetContextPath,
+  // Needed to ignore errors when esbuild is resolving url in sass and imports
+  // in javascript or typescript files (external)
+  external: ['*.ttf', '*.bmp'],
   define: {
     global: 'window',
-    ENKI_ENV: JSON.stringify(process.env.ENKI_ENV || 'development')
+    APP_ENV: JSON.stringify(process.env.APP_ENV || 'development')
   },
   sourcemap: isDevelopment,
   minify: minify || isProduction,
