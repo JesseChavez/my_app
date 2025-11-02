@@ -41,7 +41,6 @@ func startJobApplication() {
 	config.InitQueues(&app)
 
 	base.InitUnits(&app)
-	base.InitProps(&config.Props)
 
 	app.StartAndProcess()
 }
@@ -59,7 +58,6 @@ func workJobApplication() {
 	config.InitQueues(&app)
 
 	base.InitUnits(&app)
-	base.InitProps(&config.Props)
 
 	app.StartAndWork()
 }
