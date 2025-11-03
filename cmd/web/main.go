@@ -53,7 +53,6 @@ func startWebApplication() {
 	config.InitQueues(&app)
 
 	base.InitUnits(&app)
-	base.InitProps(&config.Props)
 
 	app.ListenAndServe()
 }

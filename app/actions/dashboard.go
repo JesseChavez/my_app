@@ -2,15 +2,17 @@ package actions
 
 import (
 	"net/http"
+
+	"github.com/JesseChavez/enki"
 )
 
 func (axn *Action) Dashboard(w http.ResponseWriter, r *http.Request) {
-	err := axn.requireAuth(w, r)
-
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
+	view := enki.ActionView{
+		Template: "dashboard/index.tmpl",
+		Name: "AccountShow",
+		Debug: true,
+		Data: nil,
 	}
 
-	axn.view.RenderHTML(w, http.StatusOK, "dashboard/index.tmpl", nil)
+	axn.view.Render(w, http.StatusOK, &view)
 }
